@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Components — Brick UI</title>
+  <meta name="description" content="Browse all Brick UI components with live demos and code examples.">
+  <link rel="stylesheet" href="static/brick.min.css">
+  <link rel="stylesheet" href="static/docs.css">
+  <script src="static/brick.min.js" defer></script>
+</head>
+<body>
+<div class="docs-layout">
+
+  <!-- Sidebar -->
+  <aside class="docs-sidebar" id="sidebar">
+    <a href="index.html" class="logo"><span class="brick-icon">B</span> Brick</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" style="margin:0 var(--space-4) var(--space-2)">
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <nav>
+      <span class="section-title">Pages</span>
+      <a href="index.html">Home</a>
+      <a href="usage.html">Usage</a>
+      <a href="customizing.html">Customizing</a>
+      <a href="demo.html">Demo</a>
+      <span class="section-title">Components</span>
+      <a href="#typography">Typography</a>
+      <a href="#accordion">Accordion</a>
+      <a href="#alert">Alert</a>
+      <a href="#avatar">Avatar</a>
+      <a href="#badge">Badge</a>
+      <a href="#breadcrumb">Breadcrumb</a>
+      <a href="#button">Button</a>
+      <a href="#card">Card</a>
+      <a href="#dialog">Dialog</a>
+      <a href="#dropdown">Dropdown</a>
+      <a href="#form">Form Elements</a>
+      <a href="#meter">Meter</a>
+      <a href="#pagination">Pagination</a>
+      <a href="#progress">Progress</a>
+      <a href="#spinner">Spinner</a>
+      <a href="#skeleton">Skeleton</a>
+      <a href="#switch">Switch</a>
+      <a href="#table">Table</a>
+      <a href="#tabs">Tabs</a>
+      <a href="#tooltip">Tooltip</a>
+      <a href="#toast">Toast</a>
+      <a href="#grid">Grid</a>
+      <a href="#utilities">Utilities</a>
+    </nav>
+  </aside>
+
+  <!-- Content -->
+  <div class="docs-content">
+    <h1>Components</h1>
+    <p>Brick is a semantic HTML + CSS + minimal JS component library. Semantic tags are styled directly — no classes needed for most elements.</p>
+
+    <!-- Typography -->
+    <section class="component-section" id="typography">
+      <h2>Typography</h2>
+      <p>Base text elements are styled automatically.</p>
+      <div class="demo-box">
+        <h1>Heading 1</h1><h2>Heading 2</h2><h3>Heading 3</h3><h4>Heading 4</h4><h5>Heading 5</h5><h6>Heading 6</h6>
+        <p>Paragraph with <strong>bold</strong>, <em>italic</em>, and <a href="#">a link</a>.</p>
+        <p>Some <code>inline code</code> and a code block:</p>
+        <pre><code>function hello() { console.log('Hello!'); }</code></pre>
+        <blockquote>This is a blockquote.</blockquote>
+        <hr>
+        <ul><li>Unordered item 1</li><li>Unordered item 2</li></ul>
+        <ol><li>Ordered item 1</li><li>Ordered item 2</li></ol>
+      </div>
+    </section>
+
+    <!-- Accordion -->
+    <section class="component-section" id="accordion">
+      <h2>Accordion</h2>
+      <p>Native <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> for collapsible content.</p>
+      <div class="demo-box">
+        <details><summary>What is Brick?</summary><p>Brick is a minimal, semantic-first UI component library with zero dependencies.</p></details>
+        <details><summary>How do I use it?</summary><p>Include the CSS and JS files, then write semantic HTML.</p></details>
+        <details><summary>Is it accessible?</summary><p>Yes! It uses semantic HTML and ARIA attributes. Keyboard navigation works out of the box.</p></details>
+      </div>
+    </section>
+
+    <!-- Alert -->
+    <section class="component-section" id="alert">
+      <h2>Alert</h2>
+      <p>Use <code>role="alert"</code> with <code>data-variant</code> for semantic alerts.</p>
+      <div class="demo-box" style="display:flex;flex-direction:column;gap:var(--space-3)">
+        <div role="alert" data-variant="success"><strong>Success!</strong> Your changes have been saved.</div>
+        <div role="alert" data-variant="warning"><strong>Warning!</strong> Please review before continuing.</div>
+        <div role="alert"><strong>Info</strong> This is a default alert message.</div>
+        <div role="alert" data-variant="error"><strong>Error!</strong> Something went wrong.</div>
+      </div>
+    </section>
+
+    <!-- Avatar -->
+    <section class="component-section" id="avatar">
+      <h2>Avatar</h2>
+      <p>Use <code>&lt;figure data-variant="avatar"&gt;</code> for avatars.</p>
+      <div class="demo-box" style="display:flex;align-items:center;gap:var(--space-3)">
+        <figure data-variant="avatar" class="small"><abbr title="SM">SM</abbr></figure>
+        <figure data-variant="avatar"><abbr title="BK">BK</abbr></figure>
+        <figure data-variant="avatar" class="large"><abbr title="LG">LG</abbr></figure>
+        <figure data-variant="avatar" role="group">
+          <figure data-variant="avatar"><abbr>A</abbr></figure>
+          <figure data-variant="avatar"><abbr>B</abbr></figure>
+          <figure data-variant="avatar"><abbr>C</abbr></figure>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Badge -->
+    <section class="component-section" id="badge">
+      <h2>Badge</h2>
+      <p>Use <code>.badge</code> with <code>data-variant</code> for color variants.</p>
+      <div class="demo-box" style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+        <span class="badge">Default</span>
+        <span class="badge" data-variant="secondary">Secondary</span>
+        <span class="badge outline">Outline</span>
+        <span class="badge" data-variant="success">Success</span>
+        <span class="badge" data-variant="warning">Warning</span>
+        <span class="badge" data-variant="danger">Danger</span>
+      </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <section class="component-section" id="breadcrumb">
+      <h2>Breadcrumb</h2>
+      <div class="demo-box">
+        <nav aria-label="Breadcrumb">
+          <ol class="unstyled hstack" style="font-size:var(--text-7)">
+            <li><a href="#breadcrumb" class="unstyled">Home</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="#breadcrumb" class="unstyled">Projects</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="#breadcrumb" class="unstyled" aria-current="page"><strong>Breadcrumb</strong></a></li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Button -->
+    <section class="component-section" id="button">
+      <h2>Button</h2>
+      <p>The <code>&lt;button&gt;</code> element is styled by default. Use <code>data-variant</code> for variants.</p>
+      <div class="demo-box" style="display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center">
+        <button>Primary</button>
+        <button data-variant="secondary">Secondary</button>
+        <button data-variant="danger">Danger</button>
+        <button class="outline">Outline</button>
+        <button data-variant="danger" class="outline">Danger Outline</button>
+        <button class="ghost">Ghost</button>
+        <button disabled>Disabled</button>
+      </div>
+      <h4>Sizes</h4>
+      <div class="demo-box" style="display:flex;gap:var(--space-2);align-items:center">
+        <button class="small">Small</button>
+        <button>Default</button>
+        <button class="large">Large</button>
+      </div>
+      <h4>Button Group</h4>
+      <div class="demo-box">
+        <menu class="buttons">
+          <li><button class="outline">Left</button></li>
+          <li><button class="outline">Center</button></li>
+          <li><button class="outline">Right</button></li>
+        </menu>
+      </div>
+    </section>
+
+    <!-- Card -->
+    <section class="component-section" id="card">
+      <h2>Card</h2>
+      <div class="demo-box">
+        <article class="card" style="max-width:24rem">
+          <header><h3>Card Title</h3><p>Card description goes here.</p></header>
+          <p>This is the card content.</p>
+          <footer class="hstack">
+            <button class="outline">Cancel</button>
+            <button>Save</button>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- Dialog -->
+    <section class="component-section" id="dialog">
+      <h2>Dialog</h2>
+      <p>Fully semantic dialog with <code>&lt;dialog&gt;</code>. Zero JavaScript needed.</p>
+      <div class="demo-box">
+        <button commandfor="brick-demo-dialog" command="show-modal">Open Dialog</button>
+        <dialog id="brick-demo-dialog" closedby="any">
+          <form method="dialog">
+            <header><h3>Dialog Title</h3><p>This is a dialog description.</p></header>
+            <div><p>Dialog content goes here. Click outside or press Escape to close.</p></div>
+            <footer>
+              <button type="button" commandfor="brick-demo-dialog" command="close" class="outline">Cancel</button>
+              <button value="confirm">Confirm</button>
+            </footer>
+          </form>
+        </dialog>
+      </div>
+    </section>
+
+    <!-- Dropdown -->
+    <section class="component-section" id="dropdown">
+      <h2>Dropdown <span class="wc-badge">WC</span></h2>
+      <p>Wrap in <code>&lt;bk-dropdown&gt;</code> with <code>popovertarget</code> and <code>popover</code>.</p>
+      <div class="demo-box">
+        <bk-dropdown>
+          <button popovertarget="brick-demo-menu" class="outline">
+            Options
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <menu popover id="brick-demo-menu">
+            <button role="menuitem">Profile</button>
+            <button role="menuitem">Settings</button>
+            <button role="menuitem">Help</button>
+            <hr>
+            <button role="menuitem">Logout</button>
+          </menu>
+        </bk-dropdown>
+      </div>
+    </section>
+
+    <!-- Form -->
+    <section class="component-section" id="form">
+      <h2>Form Elements</h2>
+      <p>Form elements are styled automatically. Wrap inputs in <code>&lt;label&gt;</code>.</p>
+      <div class="demo-box" style="max-width:28rem">
+        <form onsubmit="return false">
+          <label data-field>Name <input type="text" placeholder="Enter your name"></label>
+          <label data-field>Email <input type="email" placeholder="you@example.com"></label>
+          <label data-field>Password <input type="password" placeholder="Password" aria-describedby="pw-hint"><small id="pw-hint" data-hint>Must be 8+ characters</small></label>
+          <div data-field><label>Select</label><select><option value="">Select an option</option><option>Option A</option><option>Option B</option></select></div>
+          <label data-field>Message <textarea placeholder="Your message..."></textarea></label>
+          <label data-field><input type="checkbox"> I agree to the terms</label>
+          <fieldset class="hstack"><legend>Preference</legend>
+            <label><input type="radio" name="pref">Option A</label>
+            <label><input type="radio" name="pref">Option B</label>
+          </fieldset>
+          <label data-field>Volume <input type="range" min="0" max="100" value="50"></label>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <h4>Input Group</h4>
+      <div class="demo-box" style="max-width:28rem">
+        <fieldset class="group"><legend>https://</legend><input type="url" placeholder="subdomain"><button>Go</button></fieldset>
+      </div>
+    </section>
+
+    <!-- Meter -->
+    <section class="component-section" id="meter">
+      <h2>Meter</h2>
+      <div class="demo-box" style="display:flex;flex-direction:column;gap:var(--space-3);max-width:20rem">
+        <meter value="0.8" min="0" max="1" low="0.3" high="0.7" optimum="1"></meter>
+        <meter value="0.5" min="0" max="1" low="0.3" high="0.7" optimum="1"></meter>
+        <meter value="0.2" min="0" max="1" low="0.3" high="0.7" optimum="1"></meter>
+      </div>
+    </section>
+
+    <!-- Pagination -->
+    <section class="component-section" id="pagination">
+      <h2>Pagination</h2>
+      <div class="demo-box">
+        <nav aria-label="Pagination">
+          <menu class="buttons">
+            <li><a href="#pagination" class="button outline small">&larr; Prev</a></li>
+            <li><a href="#pagination" class="button outline small">1</a></li>
+            <li><a href="#pagination" class="button outline small">2</a></li>
+            <li><a href="#pagination" class="button small" aria-current="page">3</a></li>
+            <li><a href="#pagination" class="button outline small">4</a></li>
+            <li><a href="#pagination" class="button outline small">Next &rarr;</a></li>
+          </menu>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Progress -->
+    <section class="component-section" id="progress">
+      <h2>Progress</h2>
+      <div class="demo-box" style="display:flex;flex-direction:column;gap:var(--space-3);max-width:20rem">
+        <progress value="60" max="100"></progress>
+        <progress value="30" max="100"></progress>
+        <progress value="90" max="100"></progress>
+      </div>
+    </section>
+
+    <!-- Spinner -->
+    <section class="component-section" id="spinner">
+      <h2>Spinner</h2>
+      <p>Use <code>aria-busy="true"</code> on any element.</p>
+      <div class="demo-box" style="display:flex;gap:var(--space-8);align-items:center">
+        <div aria-busy="true" data-spinner="small"></div>
+        <div aria-busy="true"></div>
+        <div aria-busy="true" data-spinner="large"></div>
+        <button aria-busy="true" data-spinner="small" disabled>Loading</button>
+      </div>
+    </section>
+
+    <!-- Skeleton -->
+    <section class="component-section" id="skeleton">
+      <h2>Skeleton</h2>
+      <div class="demo-box" style="max-width:20rem;display:flex;flex-direction:column;gap:var(--space-2)">
+        <div role="status" class="skeleton line"></div>
+        <div role="status" class="skeleton line" style="width:60%"></div>
+        <div role="status" class="skeleton box"></div>
+      </div>
+    </section>
+
+    <!-- Switch -->
+    <section class="component-section" id="switch">
+      <h2>Switch</h2>
+      <p>Use <code>&lt;input type="checkbox" role="switch"&gt;</code>.</p>
+      <div class="demo-box" style="display:flex;flex-direction:column;gap:var(--space-3)">
+        <label><input type="checkbox" role="switch"> Notifications</label>
+        <label><input type="checkbox" role="switch" checked> Dark mode</label>
+        <label><input type="checkbox" role="switch" disabled> Disabled</label>
+      </div>
+    </section>
+
+    <!-- Table -->
+    <section class="component-section" id="table">
+      <h2>Table</h2>
+      <div class="demo-box">
+        <table>
+          <thead><tr><th>Name</th><th>Role</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Alice</td><td>Developer</td><td><span class="badge" data-variant="success">Active</span></td></tr>
+            <tr><td>Bob</td><td>Designer</td><td><span class="badge" data-variant="warning">Away</span></td></tr>
+            <tr><td>Charlie</td><td>Manager</td><td><span class="badge" data-variant="danger">Offline</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="component-section" id="tabs">
+      <h2>Tabs <span class="wc-badge">WC</span></h2>
+      <p>Use <code>&lt;bk-tabs&gt;</code> web component.</p>
+      <div class="demo-box">
+        <bk-tabs>
+          <div role="tablist">
+            <button role="tab" aria-selected="true">Account</button>
+            <button role="tab">Password</button>
+            <button role="tab">Settings</button>
+          </div>
+          <div role="tabpanel"><p>Manage your account settings and preferences.</p></div>
+          <div role="tabpanel"><p>Change your password and security options.</p></div>
+          <div role="tabpanel"><p>Configure application settings.</p></div>
+        </bk-tabs>
+      </div>
+    </section>
+
+    <!-- Tooltip -->
+    <section class="component-section" id="tooltip">
+      <h2>Tooltip</h2>
+      <p>Use <code>data-tooltip</code> attribute on any element.</p>
+      <div class="demo-box" style="display:flex;gap:var(--space-3)">
+        <button data-tooltip="This is a tooltip" class="outline">Hover me</button>
+        <button data-tooltip="Another tooltip" data-variant="secondary">And me</button>
+      </div>
+    </section>
+
+    <!-- Toast -->
+    <section class="component-section" id="toast">
+      <h2>Toast</h2>
+      <p>Use <code>bk.toast()</code> JavaScript API.</p>
+      <div class="demo-box" style="display:flex;gap:var(--space-2);flex-wrap:wrap">
+        <button class="outline" onclick="bk.toast('This is a toast notification')">Default Toast</button>
+        <button class="outline" onclick="bk.toast('Operation completed.','Success',{variant:'success'})">Success</button>
+        <button class="outline" onclick="bk.toast('Something went wrong.','Error',{variant:'danger'})">Error</button>
+        <button class="outline" onclick="bk.toast('Please check.','Warning',{variant:'warning'})">Warning</button>
+      </div>
+    </section>
+
+    <!-- Grid -->
+    <section class="component-section" id="grid">
+      <h2>Grid &amp; Layout</h2>
+      <p>Use <code>.hstack</code> and <code>.vstack</code> for flex layouts.</p>
+      <div class="demo-box">
+        <div class="hstack" style="gap:var(--space-2)">
+          <div style="padding:var(--space-3);background:var(--muted);border-radius:var(--radius-medium);flex:1;text-align:center">1</div>
+          <div style="padding:var(--space-3);background:var(--muted);border-radius:var(--radius-medium);flex:1;text-align:center">2</div>
+          <div style="padding:var(--space-3);background:var(--muted);border-radius:var(--radius-medium);flex:1;text-align:center">3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Utilities -->
+    <section class="component-section" id="utilities">
+      <h2>Utilities</h2>
+      <p>Helper classes: <code>.unstyled</code>, <code>.hstack</code>, <code>.vstack</code>, <code>.sr-only</code>, <code>.text-muted</code>.</p>
+      <div class="demo-box">
+        <ul class="unstyled"><li>Unstyled list item 1</li><li>Unstyled list item 2</li></ul>
+        <p class="text-muted">This is muted text.</p>
+      </div>
+    </section>
+
+    <footer class="docs-footer">
+      <p>Brick UI — <a href="https://github.com/sourabhmahato/brick">GitHub</a></p>
+    </footer>
+  </div>
+</div>
+
+<!-- Mobile menu toggle -->
+<button class="docs-menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open')">☰</button>
+<div class="docs-overlay" id="overlay" onclick="document.getElementById('sidebar').classList.remove('open');this.classList.remove('open')"></div>
+
+<script>
+  (function(){var t=localStorage.getItem('brick-theme');if(t){document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t}})();
+  function toggleTheme(){var r=document.documentElement,c=r.getAttribute('data-theme'),n;if(c==='dark')n='light';else if(c==='light')n='dark';else n=window.matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark';r.setAttribute('data-theme',n);r.style.colorScheme=n;localStorage.setItem('brick-theme',n)}
+</script>
+</body>
+</html>

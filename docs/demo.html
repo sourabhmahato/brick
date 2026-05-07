@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Demo — Brick UI</title>
+  <meta name="description" content="A full dashboard demo built entirely with Brick UI components.">
+  <link rel="stylesheet" href="static/brick.min.css">
+  <link rel="stylesheet" href="static/docs.css">
+  <script src="static/brick.min.js" defer></script>
+</head>
+<body data-sidebar-layout>
+
+  <!-- Top Navigation -->
+  <nav data-topnav>
+    <button data-sidebar-toggle onclick="this.closest('[data-sidebar-layout]').toggleAttribute('data-sidebar-open')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+    <a href="demo.html" style="text-decoration:none;font-weight:600;color:var(--foreground);display:flex;align-items:center;gap:var(--space-2)">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;background:var(--primary);color:var(--primary-foreground);border-radius:var(--radius-small);font-size:0.7rem;font-weight:700">B</span>
+      Brick Dashboard
+    </a>
+    <div style="margin-inline-start:auto;display:flex;align-items:center;gap:var(--space-3)">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="ghost small" data-tooltip="Notifications" style="position:relative">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="badge" data-variant="danger" style="position:absolute;top:-2px;right:-2px;font-size:0.6rem;padding:0.1em 0.35em">3</span>
+      </button>
+      <bk-dropdown>
+        <button popovertarget="user-menu" class="ghost small" style="display:flex;align-items:center;gap:var(--space-2)">
+          <figure data-variant="avatar" class="small"><abbr title="SM">SM</abbr></figure>
+        </button>
+        <menu popover id="user-menu">
+          <button role="menuitem">Profile</button>
+          <button role="menuitem">Settings</button>
+          <hr>
+          <button role="menuitem">Sign out</button>
+        </menu>
+      </bk-dropdown>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside data-sidebar>
+    <nav>
+      <ul>
+        <li><a href="#" aria-current="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a></li>
+        <li><a href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Users
+        </a></li>
+        <li><a href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Products
+        </a></li>
+        <li><a href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Revenue
+        </a></li>
+        <details>
+          <summary>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings
+          </summary>
+          <ul>
+            <li><a href="#">General</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Billing</a></li>
+          </ul>
+        </details>
+      </ul>
+    </nav>
+    <footer>
+      <a href="index.html" style="font-size:var(--text-8);color:var(--muted-foreground);text-decoration:none">← Back to Brick Docs</a>
+    </footer>
+  </aside>
+
+  <!-- Main Content -->
+  <main style="padding:var(--space-6)">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-3);margin-block-end:var(--space-6)">
+      <div>
+        <h1 style="margin:0;font-size:var(--text-3)">Dashboard</h1>
+        <p class="text-muted" style="margin:0;font-size:var(--text-7)">Welcome back, Sourabh 👋</p>
+      </div>
+      <div class="hstack" style="gap:var(--space-2)">
+        <button class="outline small">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export
+        </button>
+        <button class="small">+ Add New</button>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:var(--space-4);margin-block-end:var(--space-6)">
+      <article class="card">
+        <header>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <small class="text-muted">Total Revenue</small>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted-foreground)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 style="margin:var(--space-1) 0 0;font-size:var(--text-2)">₹4,52,891</h3>
+          <p style="margin:0"><span class="badge" data-variant="success" style="font-size:var(--text-8)">+12.5%</span> <small class="text-muted">from last month</small></p>
+        </header>
+      </article>
+
+      <article class="card">
+        <header>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <small class="text-muted">Active Users</small>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted-foreground)" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <h3 style="margin:var(--space-1) 0 0;font-size:var(--text-2)">2,847</h3>
+          <p style="margin:0"><span class="badge" data-variant="success" style="font-size:var(--text-8)">+8.2%</span> <small class="text-muted">from last month</small></p>
+        </header>
+      </article>
+
+      <article class="card">
+        <header>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <small class="text-muted">Orders</small>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted-foreground)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 style="margin:var(--space-1) 0 0;font-size:var(--text-2)">1,234</h3>
+          <p style="margin:0"><span class="badge" data-variant="warning" style="font-size:var(--text-8)">-2.1%</span> <small class="text-muted">from last month</small></p>
+        </header>
+      </article>
+
+      <article class="card">
+        <header>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <small class="text-muted">Conversion</small>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted-foreground)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 style="margin:var(--space-1) 0 0;font-size:var(--text-2)">3.24%</h3>
+          <p style="margin:0"><span class="badge" data-variant="success" style="font-size:var(--text-8)">+0.8%</span> <small class="text-muted">from last month</small></p>
+        </header>
+      </article>
+    </div>
+
+    <!-- Tabs section -->
+    <article class="card" style="margin-block-end:var(--space-6)">
+      <bk-tabs>
+        <div role="tablist" style="padding:var(--space-4) var(--space-4) 0">
+          <button role="tab" aria-selected="true">Recent Orders</button>
+          <button role="tab">Top Products</button>
+          <button role="tab">Analytics</button>
+        </div>
+
+        <!-- Orders Tab -->
+        <div role="tabpanel">
+          <div style="padding:var(--space-4)">
+            <table>
+              <thead>
+                <tr><th>Order</th><th>Customer</th><th>Status</th><th>Amount</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>#BK-001</code></td>
+                  <td><div class="hstack" style="gap:var(--space-2)"><figure data-variant="avatar" class="small"><abbr>AK</abbr></figure> Amit Kumar</div></td>
+                  <td><span class="badge" data-variant="success">Completed</span></td>
+                  <td>₹12,450</td>
+                </tr>
+                <tr>
+                  <td><code>#BK-002</code></td>
+                  <td><div class="hstack" style="gap:var(--space-2)"><figure data-variant="avatar" class="small"><abbr>PS</abbr></figure> Priya Singh</div></td>
+                  <td><span class="badge" data-variant="warning">Pending</span></td>
+                  <td>₹8,900</td>
+                </tr>
+                <tr>
+                  <td><code>#BK-003</code></td>
+                  <td><div class="hstack" style="gap:var(--space-2)"><figure data-variant="avatar" class="small"><abbr>RG</abbr></figure> Rahul Gupta</div></td>
+                  <td><span class="badge" data-variant="success">Completed</span></td>
+                  <td>₹23,100</td>
+                </tr>
+                <tr>
+                  <td><code>#BK-004</code></td>
+                  <td><div class="hstack" style="gap:var(--space-2)"><figure data-variant="avatar" class="small"><abbr>NP</abbr></figure> Neha Patel</div></td>
+                  <td><span class="badge" data-variant="danger">Cancelled</span></td>
+                  <td>₹5,600</td>
+                </tr>
+                <tr>
+                  <td><code>#BK-005</code></td>
+                  <td><div class="hstack" style="gap:var(--space-2)"><figure data-variant="avatar" class="small"><abbr>VJ</abbr></figure> Vijay Joshi</div></td>
+                  <td><span class="badge">Processing</span></td>
+                  <td>₹15,780</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Products Tab -->
+        <div role="tabpanel">
+          <div style="padding:var(--space-4)">
+            <table>
+              <thead><tr><th>Product</th><th>Sales</th><th>Revenue</th><th>Growth</th></tr></thead>
+              <tbody>
+                <tr><td>Widget Pro</td><td>1,247</td><td>₹3,74,100</td><td><span class="badge" data-variant="success">+18%</span></td></tr>
+                <tr><td>Gadget Lite</td><td>892</td><td>₹1,78,400</td><td><span class="badge" data-variant="success">+5%</span></td></tr>
+                <tr><td>Tool Kit</td><td>654</td><td>₹98,100</td><td><span class="badge" data-variant="warning">-3%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div role="tabpanel">
+          <div style="padding:var(--space-4)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <div>
+                <small class="text-muted">Bounce Rate</small>
+                <h4 style="margin:var(--space-1) 0">32.4%</h4>
+                <progress value="32" max="100"></progress>
+              </div>
+              <div>
+                <small class="text-muted">Session Duration</small>
+                <h4 style="margin:var(--space-1) 0">4m 23s</h4>
+                <progress value="65" max="100"></progress>
+              </div>
+              <div>
+                <small class="text-muted">Page Views</small>
+                <h4 style="margin:var(--space-1) 0">45,891</h4>
+                <progress value="78" max="100"></progress>
+              </div>
+              <div>
+                <small class="text-muted">Conversion</small>
+                <h4 style="margin:var(--space-1) 0">3.24%</h4>
+                <progress value="42" max="100"></progress>
+              </div>
+            </div>
+          </div>
+        </div>
+      </bk-tabs>
+    </article>
+
+    <!-- Bottom row -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+      <!-- Quick actions card -->
+      <article class="card">
+        <header><h3 style="margin:0;font-size:var(--text-5)">Quick Actions</h3></header>
+        <div style="padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3)">
+          <button commandfor="demo-add-user" command="show-modal" class="outline" style="width:100%;justify-content:flex-start;gap:var(--space-2)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            Add User
+          </button>
+          <button class="outline" style="width:100%;justify-content:flex-start;gap:var(--space-2)" onclick="bk.toast('Report generated!','Export',{variant:'success'})">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export Report
+          </button>
+          <button class="outline" style="width:100%;justify-content:flex-start;gap:var(--space-2)" onclick="bk.toast('Settings page coming soon','Info')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings
+          </button>
+        </div>
+      </article>
+
+      <!-- Team card -->
+      <article class="card">
+        <header><h3 style="margin:0;font-size:var(--text-5)">Team Members</h3></header>
+        <div style="padding:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3)">
+          <div style="display:flex;align-items:center;gap:var(--space-3)">
+            <figure data-variant="avatar"><abbr>SM</abbr></figure>
+            <div style="flex:1"><strong>Sourabh Mahato</strong><br><small class="text-muted">Admin</small></div>
+            <span class="badge" data-variant="success">Online</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--space-3)">
+            <figure data-variant="avatar"><abbr>AK</abbr></figure>
+            <div style="flex:1"><strong>Ankit Kumar</strong><br><small class="text-muted">Developer</small></div>
+            <span class="badge" data-variant="warning">Away</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--space-3)">
+            <figure data-variant="avatar"><abbr>PS</abbr></figure>
+            <div style="flex:1"><strong>Priya Singh</strong><br><small class="text-muted">Designer</small></div>
+            <span class="badge" data-variant="danger">Offline</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Add User Dialog -->
+    <dialog id="demo-add-user" closedby="any">
+      <form method="dialog">
+        <header><h3>Add New User</h3><p>Fill in the details below.</p></header>
+        <div class="vstack" style="gap:var(--space-3)">
+          <label data-field>Name <input type="text" placeholder="Full name" required></label>
+          <label data-field>Email <input type="email" placeholder="user@example.com"></label>
+          <div data-field>
+            <label>Role</label>
+            <select><option>Developer</option><option>Designer</option><option>Manager</option><option>Admin</option></select>
+          </div>
+        </div>
+        <footer>
+          <button type="button" commandfor="demo-add-user" command="close" class="outline">Cancel</button>
+          <button value="save" onclick="bk.toast('User added successfully!','Success',{variant:'success'})">Add User</button>
+        </footer>
+      </form>
+    </dialog>
+
+  </main>
+
+<script>
+  (function(){var t=localStorage.getItem('brick-theme');if(t){document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t}})();
+  function toggleTheme(){var r=document.documentElement,c=r.getAttribute('data-theme'),n;if(c==='dark')n='light';else if(c==='light')n='dark';else n=window.matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark';r.setAttribute('data-theme',n);r.style.colorScheme=n;localStorage.setItem('brick-theme',n)}
+</script>
+</body>
+</html>

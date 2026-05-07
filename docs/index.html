@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brick — Ultra-lightweight, semantic HTML/CSS/JS UI library</title>
+  <meta name="description" content="Brick is an ultra-lightweight, zero dependency, semantic HTML UI component library. ~9KB min+gz. Just include and build.">
+  <link rel="stylesheet" href="static/brick.min.css">
+  <link rel="stylesheet" href="static/docs.css">
+  <script src="static/brick.min.js" defer></script>
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <nav class="landing-nav">
+    <a href="index.html" class="nav-logo">
+      <span class="brick-icon" style="display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;background:var(--primary);color:var(--primary-foreground);border-radius:var(--radius-small);font-size:0.85rem;font-weight:600;">B</span>
+      Brick
+    </a>
+    <ul class="nav-links">
+      <li><a href="components.html">Components</a></li>
+      <li><a href="usage.html">Usage</a></li>
+      <li><a href="customizing.html">Customizing</a></li>
+      <li><a href="demo.html">Demo</a></li>
+      <li><a href="https://github.com/sourabhmahato/brick" target="_blank">GitHub</a></li>
+      <li>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <main style="max-width: 64rem; margin: 0 auto; padding: 0 var(--space-6);">
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Build solid UIs with <span class="highlight">Brick</span></h1>
+      <p class="subtitle">
+        Ultra-lightweight, zero-dependency, semantic HTML UI component library.
+        No framework. No build step. No Node.js ecosystem garbage. Just include the tiny CSS and JS files.
+      </p>
+      <div class="cta">
+        <a href="components.html" class="button large">Browse Components</a>
+        <a href="usage.html" class="button outline large">Get Started</a>
+      </div>
+    </section>
+
+    <!-- Size badges -->
+    <div class="size-badges">
+      <div class="size-badge">
+        <span class="value">6.7KB</span>
+        <span class="label">CSS (gzipped)</span>
+      </div>
+      <div class="size-badge">
+        <span class="value">2.4KB</span>
+        <span class="label">JS (gzipped)</span>
+      </div>
+      <div class="size-badge">
+        <span class="value">~9KB</span>
+        <span class="label">Total (gzipped)</span>
+      </div>
+      <div class="size-badge">
+        <span class="value">0</span>
+        <span class="label">Dependencies</span>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="feature-card">
+        <div class="icon">🧱</div>
+        <h3>Solid &amp; Lightweight</h3>
+        <p>~9KB total (CSS + JS, minified + gzipped). No bloat, no baggage. Every byte earns its place.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔗</div>
+        <h3>Zero Dependencies</h3>
+        <p>Fully standalone with no dependencies on any JS or CSS frameworks. No Node.js ecosystem trash.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📐</div>
+        <h3>Semantic HTML</h3>
+        <p>Native elements like <code>&lt;button&gt;</code>, <code>&lt;dialog&gt;</code>, and semantic attributes are styled directly. Minimal classes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">♿</div>
+        <h3>Accessible</h3>
+        <p>Semantic HTML and ARIA roles throughout. Proper keyboard navigation for all components.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🎨</div>
+        <h3>Easy Customization</h3>
+        <p>Override a handful of CSS variables to completely change the theme. Automatic dark mode from system preferences.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h3>Web Components</h3>
+        <p>Dynamic components like tabs, dropdowns, and tooltips are built as lightweight Web Components.</p>
+      </div>
+    </section>
+
+    <!-- Quick start -->
+    <section class="quickstart">
+      <h2 style="text-align: center; margin-block-end: var(--space-6);">Quick Start</h2>
+      <pre><code>&lt;!-- Include via CDN --&gt;
+&lt;link rel="stylesheet" href="https://unpkg.com/@sourabhmahato/brick/brick.min.css"&gt;
+&lt;script src="https://unpkg.com/@sourabhmahato/brick/brick.min.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- Or install via npm --&gt;
+npm install @sourabhmahato/brick</code></pre>
+      <p style="text-align: center; margin-block-start: var(--space-4);">
+        <a href="usage.html">Read the full usage guide →</a>
+      </p>
+    </section>
+
+    <!-- Component preview -->
+    <section style="padding: var(--space-10) 0;">
+      <h2 style="text-align: center; margin-block-end: var(--space-8);">22+ Components</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: var(--space-3); text-align: center;">
+        <a href="components.html#typography" class="button outline small">Typography</a>
+        <a href="components.html#accordion" class="button outline small">Accordion</a>
+        <a href="components.html#alert" class="button outline small">Alert</a>
+        <a href="components.html#avatar" class="button outline small">Avatar</a>
+        <a href="components.html#badge" class="button outline small">Badge</a>
+        <a href="components.html#breadcrumb" class="button outline small">Breadcrumb</a>
+        <a href="components.html#button" class="button outline small">Button</a>
+        <a href="components.html#card" class="button outline small">Card</a>
+        <a href="components.html#dialog" class="button outline small">Dialog</a>
+        <a href="components.html#dropdown" class="button outline small">Dropdown</a>
+        <a href="components.html#form" class="button outline small">Forms</a>
+        <a href="components.html#meter" class="button outline small">Meter</a>
+        <a href="components.html#pagination" class="button outline small">Pagination</a>
+        <a href="components.html#progress" class="button outline small">Progress</a>
+        <a href="components.html#spinner" class="button outline small">Spinner</a>
+        <a href="components.html#skeleton" class="button outline small">Skeleton</a>
+        <a href="components.html#sidebar" class="button outline small">Sidebar</a>
+        <a href="components.html#switch" class="button outline small">Switch</a>
+        <a href="components.html#table" class="button outline small">Table</a>
+        <a href="components.html#tabs" class="button outline small">Tabs</a>
+        <a href="components.html#tooltip" class="button outline small">Tooltip</a>
+        <a href="components.html#toast" class="button outline small">Toast</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="docs-footer">
+      <p>Brick — Built with frustration at the JavaScript ecosystem. <a href="https://github.com/sourabhmahato/brick">GitHub</a></p>
+    </footer>
+  </main>
+
+<script>
+  (function(){var t=localStorage.getItem('brick-theme');if(t){document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t}})();
+  function toggleTheme(){var r=document.documentElement,c=r.getAttribute('data-theme'),n;if(c==='dark')n='light';else if(c==='light')n='dark';else n=window.matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark';r.setAttribute('data-theme',n);r.style.colorScheme=n;localStorage.setItem('brick-theme',n)}
+</script>
+</body>
+</html>

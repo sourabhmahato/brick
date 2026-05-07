@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customizing — Brick UI</title>
+  <meta name="description" content="Customize Brick UI with CSS variables. Change colors, fonts, spacing, and more.">
+  <link rel="stylesheet" href="static/brick.min.css">
+  <link rel="stylesheet" href="static/docs.css">
+  <script src="static/brick.min.js" defer></script>
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" id="sidebar">
+    <a href="index.html" class="logo"><span class="brick-icon">B</span> Brick</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" style="margin:0 var(--space-4) var(--space-2)">
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <nav>
+      <span class="section-title">Pages</span>
+      <a href="index.html">Home</a>
+      <a href="components.html">Components</a>
+      <a href="usage.html">Usage</a>
+      <a href="customizing.html" aria-current="page">Customizing</a>
+      <a href="demo.html">Demo</a>
+      <span class="section-title">On this page</span>
+      <a href="#colors">Colors</a>
+      <a href="#typography">Typography</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#radius">Border Radius</a>
+      <a href="#shadows">Shadows</a>
+      <a href="#transitions">Transitions</a>
+      <a href="#example">Full Example</a>
+    </nav>
+  </aside>
+
+  <div class="docs-content prose">
+    <h1>Customizing</h1>
+    <p>Brick's entire visual theme is controlled by CSS custom properties (variables). Override them on <code>:root</code> to change the look and feel globally.</p>
+
+    <section id="colors">
+      <h2>Colors</h2>
+      <p>All colors use the <code>light-dark()</code> function for automatic light/dark mode support. Override them to set your own palette:</p>
+      <pre><code>:root {
+  /* Core surfaces */
+  --background: light-dark(#fff, #0a0a0c);
+  --foreground: light-dark(#0a0a0c, #fafafa);
+  --card: light-dark(#fff, #18181b);
+  --card-foreground: light-dark(#0a0a0c, #fafafa);
+
+  /* Brand colors */
+  --primary: light-dark(#8b4513, #fafafa);
+  --primary-foreground: light-dark(#fafafa, #18181b);
+  --secondary: light-dark(#f4f4f5, #27272a);
+  --secondary-foreground: light-dark(#8b4513, #fafafa);
+
+  /* Semantic colors */
+  --danger: light-dark(#d32f2f, #f4807b);
+  --success: light-dark(#008032, #6cc070);
+  --warning: light-dark(#a65b00, #f0a030);
+
+  /* Neutral tones */
+  --muted: light-dark(#f4f4f5, #27272a);
+  --muted-foreground: light-dark(#71717a, #a1a1aa);
+  --faint: light-dark(#fafafa, #1e1e21);
+  --accent: light-dark(#f4f4f5, #27272a);
+
+  /* Borders and inputs */
+  --border: light-dark(#d4d4d8, #52525b);
+  --input: light-dark(#d4d4d8, #52525b);
+  --ring: light-dark(#8b4513, #d4d4d8);
+}</code></pre>
+
+      <h3>Example: Blue theme</h3>
+      <pre><code>:root {
+  --primary: light-dark(#2563eb, #60a5fa);
+  --primary-foreground: light-dark(#fff, #1e293b);
+  --secondary-foreground: light-dark(#2563eb, #60a5fa);
+  --ring: light-dark(#2563eb, #60a5fa);
+}</code></pre>
+
+      <div class="demo-box">
+        <p><strong>Try it:</strong> Change <code>--primary</code> to any color and everything updates — buttons, links, focus rings, switches, badges, and more.</p>
+      </div>
+    </section>
+
+    <section id="typography">
+      <h2>Typography</h2>
+      <pre><code>:root {
+  --font-sans: system-ui, sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+
+  /* Fluid type scale */
+  --text-1: clamp(1.75rem, 1.5rem + 1.1vw, 2.25rem);  /* h1 */
+  --text-2: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);   /* h2 */
+  --text-3: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);    /* h3 */
+  --text-4: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem); /* h4 */
+  --text-5: 1.125rem;                                    /* h5 */
+  --text-6: 1rem;                                        /* body */
+  --text-7: 0.875rem;                                    /* small text */
+  --text-8: 0.75rem;                                     /* tiny text */
+  --text-regular: var(--text-6);
+
+  /* Font weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 600;
+
+  --leading-normal: 1.5;
+}</code></pre>
+    </section>
+
+    <section id="spacing">
+      <h2>Spacing Scale</h2>
+      <p>A consistent spacing scale based on <code>0.25rem</code> increments:</p>
+      <pre><code>:root {
+  --space-1: 0.25rem;   /*  4px */
+  --space-2: 0.5rem;    /*  8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-14: 3.5rem;   /* 56px */
+  --space-16: 4rem;     /* 64px */
+  --space-18: 4.5rem;   /* 72px */
+}</code></pre>
+    </section>
+
+    <section id="radius">
+      <h2>Border Radius</h2>
+      <pre><code>:root {
+  --radius-small: 0.125rem;   /* 2px — checkboxes, code */
+  --radius-medium: 0.375rem;  /* 6px — buttons, inputs, cards */
+  --radius-large: 0.75rem;    /* 12px — dialogs, demo boxes */
+  --radius-full: 9999px;      /* pill shapes, avatars */
+}</code></pre>
+    </section>
+
+    <section id="shadows">
+      <h2>Shadows</h2>
+      <pre><code>:root {
+  --shadow-small: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-medium: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+                   0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-large: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+                  0 2px 4px -2px rgb(0 0 0 / 0.1);
+}</code></pre>
+    </section>
+
+    <section id="transitions">
+      <h2>Transitions</h2>
+      <pre><code>:root {
+  --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}</code></pre>
+    </section>
+
+    <section id="example">
+      <h2>Full Custom Theme Example</h2>
+      <p>Here's a complete custom theme override with a blue palette and rounded corners:</p>
+      <pre><code>:root {
+  /* Blue brand */
+  --primary: light-dark(#1d4ed8, #93c5fd);
+  --primary-foreground: light-dark(#fff, #1e3a5f);
+  --secondary-foreground: light-dark(#1d4ed8, #93c5fd);
+  --ring: light-dark(#1d4ed8, #93c5fd);
+
+  /* Rounder corners */
+  --radius-small: 0.25rem;
+  --radius-medium: 0.5rem;
+  --radius-large: 1rem;
+
+  /* Custom font */
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Or force dark mode */
+:root {
+  color-scheme: dark;
+}</code></pre>
+    </section>
+
+    <footer class="docs-footer">
+      <p>Brick UI — <a href="https://github.com/sourabhmahato/brick">GitHub</a></p>
+    </footer>
+  </div>
+</div>
+
+<button class="docs-menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open')">☰</button>
+<div class="docs-overlay" id="overlay" onclick="document.getElementById('sidebar').classList.remove('open');this.classList.remove('open')"></div>
+<script>
+  (function(){var t=localStorage.getItem('brick-theme');if(t){document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t}})();
+  function toggleTheme(){var r=document.documentElement,c=r.getAttribute('data-theme'),n;if(c==='dark')n='light';else if(c==='light')n='dark';else n=window.matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark';r.setAttribute('data-theme',n);r.style.colorScheme=n;localStorage.setItem('brick-theme',n)}
+</script>
+</body>
+</html>

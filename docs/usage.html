@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usage — Brick UI</title>
+  <meta name="description" content="Get started with Brick UI. Installation, CDN, npm, and basic usage guide.">
+  <link rel="stylesheet" href="static/brick.min.css">
+  <link rel="stylesheet" href="static/docs.css">
+  <script src="static/brick.min.js" defer></script>
+</head>
+<body>
+<div class="docs-layout">
+
+  <aside class="docs-sidebar" id="sidebar">
+    <a href="index.html" class="logo"><span class="brick-icon">B</span> Brick</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" style="margin:0 var(--space-4) var(--space-2)">
+      <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <nav>
+      <span class="section-title">Pages</span>
+      <a href="index.html">Home</a>
+      <a href="components.html">Components</a>
+      <a href="usage.html" aria-current="page">Usage</a>
+      <a href="customizing.html">Customizing</a>
+      <a href="demo.html">Demo</a>
+      <span class="section-title">On this page</span>
+      <a href="#cdn">CDN</a>
+      <a href="#npm">npm</a>
+      <a href="#html">Basic HTML</a>
+      <a href="#semantic">Semantic Approach</a>
+      <a href="#webcomponents">Web Components</a>
+      <a href="#javascript">JavaScript API</a>
+      <a href="#dark-mode">Dark Mode</a>
+    </nav>
+  </aside>
+
+  <div class="docs-content prose">
+    <h1>Getting Started</h1>
+    <p>Brick is designed to be dead simple. Include two files — one CSS, one JS — and start writing semantic HTML. No build step, no framework, no configuration.</p>
+
+    <section id="cdn">
+      <h2>CDN</h2>
+      <p>The fastest way to get started. Add these two lines to your HTML <code>&lt;head&gt;</code>:</p>
+      <pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/@sourabhmahato/brick/brick.min.css"&gt;
+&lt;script src="https://unpkg.com/@sourabhmahato/brick/brick.min.js" defer&gt;&lt;/script&gt;</code></pre>
+      <p>Or use jsDelivr:</p>
+      <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sourabhmahato/brick/brick.min.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/@sourabhmahato/brick/brick.min.js" defer&gt;&lt;/script&gt;</code></pre>
+    </section>
+
+    <section id="npm">
+      <h2>npm</h2>
+      <p>Install via npm if you prefer a local copy or are using a bundler:</p>
+      <pre><code>npm install @sourabhmahato/brick</code></pre>
+      <p>Then import in your project:</p>
+      <pre><code>// In your CSS or build pipeline
+@import '@sourabhmahato/brick/brick.min.css';
+
+// In your JS (if using a bundler)
+import '@sourabhmahato/brick/brick.min.js';</code></pre>
+    </section>
+
+    <section id="html">
+      <h2>Basic HTML Template</h2>
+      <p>Here's a complete starter template:</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My App&lt;/title&gt;
+  &lt;link rel="stylesheet" href="https://unpkg.com/@sourabhmahato/brick/brick.min.css"&gt;
+  &lt;script src="https://unpkg.com/@sourabhmahato/brick/brick.min.js" defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main style="max-width: 40rem; margin: 0 auto; padding: 2rem;"&gt;
+    &lt;h1&gt;Hello Brick&lt;/h1&gt;
+    &lt;p&gt;This paragraph is styled automatically.&lt;/p&gt;
+    &lt;button&gt;Click me&lt;/button&gt;
+    &lt;button class="outline"&gt;Or me&lt;/button&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="semantic">
+      <h2>The Semantic Approach</h2>
+      <p>Brick styles native HTML elements and semantic attributes directly. You rarely need classes. Here's the philosophy:</p>
+
+      <table>
+        <thead>
+          <tr><th>Instead of</th><th>Use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>&lt;div class="btn btn-primary"&gt;</code></td><td><code>&lt;button&gt;</code></td></tr>
+          <tr><td><code>&lt;div class="alert alert-danger"&gt;</code></td><td><code>&lt;div role="alert" data-variant="error"&gt;</code></td></tr>
+          <tr><td><code>&lt;div class="modal"&gt;</code></td><td><code>&lt;dialog&gt;</code></td></tr>
+          <tr><td><code>&lt;div class="toggle"&gt;</code></td><td><code>&lt;input type="checkbox" role="switch"&gt;</code></td></tr>
+          <tr><td><code>&lt;div class="collapse"&gt;</code></td><td><code>&lt;details&gt;&lt;summary&gt;</code></td></tr>
+          <tr><td><code>&lt;div class="spinner"&gt;</code></td><td><code>&lt;div aria-busy="true"&gt;</code></td></tr>
+        </tbody>
+      </table>
+
+      <p>When classes <em>are</em> needed, they're minimal and meaningful:</p>
+      <ul>
+        <li><code>.outline</code> / <code>.ghost</code> — button style variants</li>
+        <li><code>.small</code> / <code>.large</code> — size modifiers</li>
+        <li><code>.badge</code> / <code>.card</code> — component identifiers</li>
+        <li><code>.hstack</code> / <code>.vstack</code> — layout helpers</li>
+      </ul>
+    </section>
+
+    <section id="webcomponents">
+      <h2>Web Components</h2>
+      <p>A few interactive components are implemented as lightweight Web Components. They're registered automatically when you include the JS file:</p>
+
+      <table>
+        <thead>
+          <tr><th>Element</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>&lt;bk-tabs&gt;</code></td><td>Tabbed interface with keyboard nav and ARIA</td></tr>
+          <tr><td><code>&lt;bk-dropdown&gt;</code></td><td>Dropdown menus with positioning and keyboard nav</td></tr>
+        </tbody>
+      </table>
+
+      <p>Usage is simple — just wrap your content:</p>
+      <pre><code>&lt;bk-tabs&gt;
+  &lt;div role="tablist"&gt;
+    &lt;button role="tab"&gt;Tab 1&lt;/button&gt;
+    &lt;button role="tab"&gt;Tab 2&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div role="tabpanel"&gt;Content 1&lt;/div&gt;
+  &lt;div role="tabpanel"&gt;Content 2&lt;/div&gt;
+&lt;/bk-tabs&gt;</code></pre>
+    </section>
+
+    <section id="javascript">
+      <h2>JavaScript API</h2>
+      <p>Brick exposes a minimal global API on <code>window.bk</code>:</p>
+
+      <h3>Toast Notifications</h3>
+      <pre><code>// Simple text toast
+bk.toast('Saved successfully!')
+
+// With title
+bk.toast('Your changes have been saved.', 'Success')
+
+// With variant and options
+bk.toast('Something went wrong.', 'Error', {
+  variant: 'danger',        // 'info' | 'success' | 'warning' | 'danger'
+  placement: 'top-right',   // 'top-right' | 'top-left' | 'bottom-right' | 'bottom-center' ...
+  duration: 4000             // ms, 0 for persistent
+})
+
+// Custom element toast
+bk.toast.el(document.querySelector('#my-template'))
+
+// Clear all toasts
+bk.toast.clear()</code></pre>
+
+      <h3>Events</h3>
+      <p>Web components emit custom events:</p>
+      <pre><code>// Tab change
+document.querySelector('bk-tabs').addEventListener('bk-tab-change', (e) => {
+  console.log(e.detail.index, e.detail.tab);
+});</code></pre>
+    </section>
+
+    <section id="dark-mode">
+      <h2>Dark Mode</h2>
+      <p>Brick automatically respects the user's system color scheme preference via <code>color-scheme: light dark</code> and the <code>light-dark()</code> CSS function. No toggle needed — it just works.</p>
+      <p>To force a specific mode, set the <code>color-scheme</code> on the root:</p>
+      <pre><code>/* Force light mode */
+:root { color-scheme: light; }
+
+/* Force dark mode */
+:root { color-scheme: dark; }</code></pre>
+    </section>
+
+    <footer class="docs-footer">
+      <p>Brick UI — <a href="https://github.com/sourabhmahato/brick">GitHub</a></p>
+    </footer>
+  </div>
+</div>
+
+<button class="docs-menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').classList.toggle('open')">☰</button>
+<div class="docs-overlay" id="overlay" onclick="document.getElementById('sidebar').classList.remove('open');this.classList.remove('open')"></div>
+<script>
+  (function(){var t=localStorage.getItem('brick-theme');if(t){document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t}})();
+  function toggleTheme(){var r=document.documentElement,c=r.getAttribute('data-theme'),n;if(c==='dark')n='light';else if(c==='light')n='dark';else n=window.matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark';r.setAttribute('data-theme',n);r.style.colorScheme=n;localStorage.setItem('brick-theme',n)}
+</script>
+</body>
+</html>

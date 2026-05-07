@@ -1,0 +1,30 @@
+{
+  "name": "@sourabhmahato/brick",
+  "version": "version-0.0.0",
+  "license": "MIT",
+  "author": "Sourabh Mahato",
+  "homepage": "https://github.com/sourabhmahato/brick",
+  "description": "Ultra-lightweight, zero dependency, semantic HTML/CSS/JS UI library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourabhmahato/brick.git"
+  },
+  "keywords": [
+    "ui",
+    "components",
+    "component-library"
+  ],
+  "files": [
+    "brick.min.css",
+    "brick.min.js",
+    "css",
+    "js"
+  ],
+  "main": "brick.min.js",
+  "style": "brick.min.css",
+  "unpkg": "brick.min.js",
+  "jsdelivr": "brick.min.js",
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}

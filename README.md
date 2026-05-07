@@ -8,7 +8,7 @@ Semantic tags and attributes are styled contextually out of the box without clas
 
 I wrote this to use in my own projects after getting sick of the ridiculous bloat, dependencies, and rug-pulls in Javascript UI/component libraries.
 
-See live demo and docs at [brick docs](docs/index.html)
+See live demo and docs at [brick docs](https://sourabhmahato.github.io/brick/)
 
 **IMPORTANT:** The lib is currently sub v1 and is likely to have breaking changes until it hits v1.
 
